@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "title": "pk.dev — websites, apps & 2D games | Patryk Kostecki",
+    "description": "Got an idea? Tell me about it. I build websites, apps and 2D games — from idea to launch and care after release."
+  },
+  "nav": {
+    "services": "What I do",
+    "projects": "Projects",
+    "contact": "Contact",
+    "cta": "Write to me"
+  },
+  "hero": {
+    "title1": "Got an idea?",
+    "title2": "I'll build it.",
+    "subtitle": "Websites, apps and games — you tell me what you want to achieve, and I take care of everything else: design, code, launch and care after release.",
+    "ctaPrimary": "Write to me",
+    "ctaSecondary": "See what I do",
+    "note": "A quote and an action plan — free, usually within 24 hours."
+  },
+  "services": {
+    "eyebrow": "What I do",
+    "title": "One person. The whole project.",
+    "subtitle": "You don't need to know how it works inside. You just need to know what you want to achieve.",
+    "cards": [
+      {
+        "title": "Websites",
+        "text": "Your business online: a fast, modern website that looks great on phones and is easy to find on Google."
+      },
+      {
+        "title": "Web & mobile apps",
+        "text": "A tool tailored to your business or an app for Android and iPhone — from idea all the way to the app store."
+      },
+      {
+        "title": "2D games — also personalized",
+        "text": "A game starring you and your friends? Can do. Perfect as a gift, for an event, or just for fun."
+      },
+      {
+        "title": "Care after launch",
+        "text": "I don't disappear after delivery. Updates, fixes and new features — your site or app is always looked after."
+      }
+    ]
+  },
+  "steps": {
+    "title": "How we work together",
+    "items": [
+      {
+        "title": "You write to me",
+        "text": "A few sentences about what you need. No technical language — just describe the idea."
+      },
+      {
+        "title": "We agree on a plan",
+        "text": "I propose a solution, timeline and price. Everything clear from the start, no surprises."
+      },
+      {
+        "title": "You receive the product",
+        "text": "I build and show progress along the way. You get a working product at the end."
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Projects",
+    "title": "Selected work",
+    "subtitle": "A website, an app and a game — three different worlds, one maker.",
+    "visit": "View",
+    "items": [
+      {
+        "title": "alverniaplanet.com",
+        "tag": "Website",
+        "desc": "Official website of the Alvernia Planet film park — attractions, tickets, events. Administration, growth and optimization of the site.",
+        "href": "https://alverniaplanet.com",
+        "cta": "Visit website"
+      },
+      {
+        "title": "MarsApp",
+        "tag": "iOS app",
+        "desc": "An Alvernia Planet app that turns visitors' recordings into a finished Mars mission movie — from green screen to final edit on the phone.",
+        "href": "https://apps.apple.com/pl/app/marsapp/id6775477060",
+        "cta": "View on App Store"
+      },
+      {
+        "title": "tadzik28.pl",
+        "tag": "2D game",
+        "desc": "A pixel-art 2D browser game with personalized characters — proof that a game can be a great gift.",
+        "href": "https://tadzik28.pl",
+        "cta": "Play online"
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Tell me about your idea",
+    "subtitle": "Write a few sentences — what you want to build and why. I'll take care of the rest.",
+    "writeBtn": "Send an e-mail",
+    "copy": "Copy address",
+    "copied": "Copied!",
+    "form": {
+      "name": "Your name",
+      "email": "Your e-mail",
+      "message": "Briefly describe your idea…",
+      "submit": "Send message"
+    }
+  },
+  "footer": {
+    "tagline": "Websites, apps and 2D games — from idea to launch and care after release.",
+    "rights": "All rights reserved.",
+    "linksTitle": "Quick links",
+    "contactTitle": "Contact",
+    "note": "I usually reply within 24 hours."
+  },
+  "ticker": [
+    "Websites",
+    "Mobile apps",
+    "2D games",
+    "Shops & bookings",
+    "Web apps",
+    "Care & growth"
+  ],
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Common questions",
+    "items": [
+      {
+        "q": "How much does it cost?",
+        "a": "Every project is priced individually after a short chat — a simple website is a different budget than an app or a game. You know the price before we start and it doesn't change."
+      },
+      {
+        "q": "How long does it take?",
+        "a": "A simple website usually takes 1–2 weeks, a bigger site or an app 4–8 weeks. You get a concrete deadline together with the quote and the plan."
+      },
+      {
+        "q": "I'm not technical — is that a problem?",
+        "a": "Not at all. We talk like humans about what you want to achieve, and I handle the technical side: domain, hosting, deployment and security."
+      },
+      {
+        "q": "What happens after launch?",
+        "a": "Nothing is left unattended. I can keep updating, fixing and growing your site or app — on an ongoing basis or whenever you need it."
+      }
+    ]
+  }
+}

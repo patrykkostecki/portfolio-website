@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "title": "pk.dev — strony, aplikacje i gry 2D | Patryk Kostecki",
+    "description": "Masz pomysł? Opowiedz mi o nim. Buduję strony internetowe, aplikacje i gry 2D — od pomysłu po wdrożenie i opiekę po starcie."
+  },
+  "nav": {
+    "services": "Co robię",
+    "projects": "Projekty",
+    "contact": "Kontakt",
+    "cta": "Napisz do mnie"
+  },
+  "hero": {
+    "title1": "Masz pomysł?",
+    "title2": "Ja go zbuduję.",
+    "subtitle": "Strony internetowe, aplikacje i gry — Ty opowiadasz, co chcesz osiągnąć, a ja zajmuję się całą resztą: projektem, kodem, wdrożeniem i opieką po starcie.",
+    "ctaPrimary": "Napisz do mnie",
+    "ctaSecondary": "Zobacz, co robię",
+    "note": "Wycena i plan działania — za darmo, zwykle w 24 godziny."
+  },
+  "services": {
+    "eyebrow": "Co robię",
+    "title": "Jedna osoba. Cały projekt.",
+    "subtitle": "Nie musisz wiedzieć, jak to działa od środka. Wystarczy, że wiesz, co chcesz osiągnąć.",
+    "cards": [
+      {
+        "title": "Strony internetowe",
+        "text": "Twoja firma w internecie: szybka, nowoczesna strona, która dobrze wygląda na telefonie i łatwo ją znaleźć w Google."
+      },
+      {
+        "title": "Aplikacje webowe i mobilne",
+        "text": "Narzędzie skrojone pod Twój biznes albo aplikacja na Androida i iPhone'a — od pomysłu aż po publikację w sklepie."
+      },
+      {
+        "title": "Gry 2D — także personalizowane",
+        "text": "Gra z Tobą i Twoimi znajomymi w rolach głównych? Da się zrobić. Idealna na prezent, event albo po prostu dla frajdy."
+      },
+      {
+        "title": "Opieka po wdrożeniu",
+        "text": "Nie znikam po oddaniu projektu. Aktualizacje, poprawki i nowe funkcje — strona czy aplikacja zawsze pod opieką."
+      }
+    ]
+  },
+  "steps": {
+    "title": "Jak wygląda współpraca",
+    "items": [
+      {
+        "title": "Piszesz do mnie",
+        "text": "Kilka zdań o tym, czego potrzebujesz. Bez technicznego języka — po prostu opisz pomysł."
+      },
+      {
+        "title": "Ustalamy plan",
+        "text": "Proponuję rozwiązanie, termin i wycenę. Wszystko jasne od początku, zero niespodzianek."
+      },
+      {
+        "title": "Odbierasz gotowy produkt",
+        "text": "Buduję i pokazuję postępy na bieżąco. Ty na końcu odbierasz działający produkt."
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Projekty",
+    "title": "Wybrane realizacje",
+    "subtitle": "Strona, aplikacja i gra — trzy różne światy, jeden wykonawca.",
+    "visit": "Zobacz",
+    "items": [
+      {
+        "title": "alverniaplanet.com",
+        "tag": "Strona WWW",
+        "desc": "Oficjalna strona parku rozrywki filmowej Alvernia Planet — atrakcje, bilety, wydarzenia. Administracja, rozwój i optymalizacja serwisu.",
+        "href": "https://alverniaplanet.com",
+        "cta": "Zobacz stronę"
+      },
+      {
+        "title": "MarsApp",
+        "tag": "Aplikacja iOS",
+        "desc": "Aplikacja Alvernia Planet, która zamienia nagrania zwiedzających w gotowy film z misji na Marsie — od green screenu po finalny montaż w telefonie.",
+        "href": "https://apps.apple.com/pl/app/marsapp/id6775477060",
+        "cta": "Zobacz w App Store"
+      },
+      {
+        "title": "tadzik28.pl",
+        "tag": "Gra 2D",
+        "desc": "Przeglądarkowa gra 2D w stylu pixel art z personalizowanymi bohaterami — dowód na to, że gra może być świetnym prezentem.",
+        "href": "https://tadzik28.pl",
+        "cta": "Zagraj online"
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Kontakt",
+    "title": "Opowiedz mi o swoim pomyśle",
+    "subtitle": "Napisz kilka zdań — co chcesz zbudować i po co. Resztą zajmę się ja.",
+    "writeBtn": "Napisz e-mail",
+    "copy": "Skopiuj adres",
+    "copied": "Skopiowano!",
+    "form": {
+      "name": "Twoje imię",
+      "email": "Twój e-mail",
+      "message": "Opisz krótko swój pomysł…",
+      "submit": "Wyślij wiadomość"
+    }
+  },
+  "footer": {
+    "tagline": "Strony internetowe, aplikacje i gry 2D — od pomysłu po wdrożenie i opiekę po starcie.",
+    "rights": "Wszelkie prawa zastrzeżone.",
+    "linksTitle": "Na skróty",
+    "contactTitle": "Kontakt",
+    "note": "Zwykle odpowiadam w ciągu 24 godzin."
+  },
+  "ticker": [
+    "Strony WWW",
+    "Aplikacje mobilne",
+    "Gry 2D",
+    "Sklepy i rezerwacje",
+    "Aplikacje webowe",
+    "Utrzymanie i rozwój"
+  ],
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Częste pytania",
+    "items": [
+      {
+        "q": "Ile to kosztuje?",
+        "a": "Każdy projekt wyceniam indywidualnie po krótkiej rozmowie — prosta strona to inny budżet niż aplikacja czy gra. Cenę znasz przed startem i nie zmienia się w trakcie."
+      },
+      {
+        "q": "Jak długo trwa realizacja?",
+        "a": "Prosta strona to zwykle 1–2 tygodnie, większy serwis albo aplikacja 4–8 tygodni. Konkretny termin dostajesz razem z wyceną i planem działania."
+      },
+      {
+        "q": "Nie znam się na technologii — czy to problem?",
+        "a": "Żaden. Rozmawiamy po ludzku o tym, co chcesz osiągnąć, a całą techniczną stroną zajmuję się ja: domeną, hostingiem, wdrożeniem i bezpieczeństwem."
+      },
+      {
+        "q": "Co się dzieje po oddaniu projektu?",
+        "a": "Nic nie zostaje bez opieki. Mogę dalej aktualizować, poprawiać i rozwijać Twoją stronę czy aplikację — na stałe albo doraźnie, kiedy potrzebujesz."
+      }
+    ]
+  }
+}
