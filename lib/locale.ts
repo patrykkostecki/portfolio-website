@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 
 import { messages, type Locale } from "@/lib/i18n";
 
@@ -14,22 +14,32 @@ export function setLocale(locale: Locale) {
   window.dispatchEvent(new CustomEvent<Locale>(EVENT, { detail: locale }));
 }
 
+function subscribe(onChange: () => void) {
+  window.addEventListener(EVENT, onChange);
+  window.addEventListener("storage", onChange); // other tabs
+  return () => {
+    window.removeEventListener(EVENT, onChange);
+    window.removeEventListener("storage", onChange);
+  };
+}
+
+function getSnapshot(): Locale {
+  try {
+    return window.localStorage.getItem(KEY) === "en" ? "en" : "pl";
+  } catch {
+    return "pl";
+  }
+}
+
+const getServerSnapshot = (): Locale => "pl";
+
 /**
- * Shared locale state backed by localStorage. Renders "pl" on the server and
- * the first client paint (avoids hydration mismatch), then syncs to the stored
- * value. A custom event keeps every mounted component in lockstep.
+ * Shared locale state backed by localStorage. The server (and hydration)
+ * snapshot is always "pl"; React re-renders with the stored value right after
+ * hydration, so there is no mismatch and no setState-in-effect.
  */
 export function useLocale() {
-  const [locale, setLocaleState] = useState<Locale>("pl");
-
-  useEffect(() => {
-    const stored = window.localStorage.getItem(KEY);
-    if (stored === "en" || stored === "pl") setLocaleState(stored);
-
-    const onChange = (event: Event) => setLocaleState((event as CustomEvent<Locale>).detail);
-    window.addEventListener(EVENT, onChange);
-    return () => window.removeEventListener(EVENT, onChange);
-  }, []);
+  const locale = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   useEffect(() => {
     document.documentElement.lang = locale;

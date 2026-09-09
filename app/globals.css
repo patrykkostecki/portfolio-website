@@ -145,8 +145,8 @@ body {
       rgba(56, 182, 255, 0.16)
     );
   filter: blur(90px);
-  opacity: 0.55;
-  animation: auroraspin 40s linear infinite;
+  opacity: 0.4;
+  animation: auroraspin 48s linear infinite;
   will-change: transform;
 }
 @keyframes auroraspin {
@@ -308,10 +308,10 @@ body {
 @keyframes ctaglow {
   0%,
   100% {
-    box-shadow: 0 8px 28px rgba(28, 97, 214, 0.4);
+    box-shadow: 0 8px 28px rgba(28, 97, 214, 0.35);
   }
   50% {
-    box-shadow: 0 10px 44px rgba(56, 182, 255, 0.7);
+    box-shadow: 0 10px 36px rgba(56, 182, 255, 0.5);
   }
 }
 .cta-pulse {

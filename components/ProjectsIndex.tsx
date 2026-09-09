@@ -49,8 +49,8 @@ export function ProjectsIndex() {
                 className="grid gap-5 sm:grid-cols-[300px_1fr] sm:items-stretch"
                 aria-label={project.title}
               >
-                <div className="relative h-52 overflow-hidden rounded-[1.5rem] sm:h-full">
-                  <CardMedia slug={project.slug} cover={project.cover} accent={project.accent} />
+                <div className="relative h-56 overflow-hidden rounded-[1.5rem] border border-white/5 sm:h-full sm:min-h-[15rem]">
+                  <CardMedia project={project} />
                   <span className="absolute left-3 top-3 z-10 rounded-full bg-[rgba(10,15,30,0.75)] px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-[var(--sky)] backdrop-blur">
                     {project.tag[locale]}
                   </span>

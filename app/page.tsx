@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 
+import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { Faq } from "@/components/Faq";
 import { Hero } from "@/components/Hero";
@@ -23,6 +24,7 @@ export default function Home() {
       <Ticker messages={dict} />
       <Services messages={dict} />
       <Projects messages={dict} />
+      <About messages={dict} />
       <Faq messages={dict} />
       <Contact messages={dict} />
     </>

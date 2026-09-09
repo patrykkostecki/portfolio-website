@@ -24,8 +24,14 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://patrykkostecki.dev"),
+  metadataBase: new URL(siteUrl),
   title: "pk.dev — strony, aplikacje i gry 2D | Patryk Kostecki",
   description:
     "Masz pomysł? Opowiedz mi o nim. Buduję strony internetowe, aplikacje i gry 2D — od pomysłu po wdrożenie i opiekę po starcie.",
@@ -33,7 +39,7 @@ export const metadata: Metadata = {
     title: "pk.dev — strony, aplikacje i gry 2D",
     description:
       "Masz pomysł? Opowiedz mi o nim. Buduję strony internetowe, aplikacje i gry 2D — od pomysłu po wdrożenie i opiekę po starcie.",
-    url: "https://patrykkostecki.dev",
+    url: siteUrl,
     siteName: "pk.dev",
     locale: "pl_PL",
     type: "website",

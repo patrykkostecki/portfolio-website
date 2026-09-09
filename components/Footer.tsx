@@ -17,6 +17,7 @@ export function Footer() {
   const links = [
     { href: `${base}#services`, label: dict.nav.services },
     { href: "/projekty", label: dict.nav.projects },
+    { href: `${base}#about`, label: dict.nav.about },
     { href: `${base}#contact`, label: dict.nav.contact },
   ];
 
@@ -86,7 +87,7 @@ export function Footer() {
         <p className="font-mono text-xs text-[var(--text-dim)]/60">
           © {new Date().getFullYear()} {profile.name} · {dict.footer.rights}
         </p>
-        <p className="font-mono text-xs text-[var(--text-dim)]/40">pk.dev — …</p>
+        <p className="font-mono text-xs text-[var(--text-dim)]/40">Next.js · Vercel</p>
       </div>
     </footer>
   );

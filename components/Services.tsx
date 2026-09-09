@@ -123,9 +123,11 @@ export function Services({ messages }: ServicesProps) {
           <p className="mt-4 text-[var(--text-dim)]">{messages.services.subtitle}</p>
         </motion.div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2">
+        {/* bento: wide cards on the outer corners, compact ones in between */}
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {messages.services.cards.map((card, index) => {
             const Visual = visuals[index] ?? VisualWebsite;
+            const wide = index === 0 || index === 3;
             return (
               <motion.div
                 key={card.title}
@@ -134,13 +136,24 @@ export function Services({ messages }: ServicesProps) {
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, delay: (index % 2) * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 onMouseMove={spotlight}
-                className="glass glass-hover spot group overflow-hidden rounded-[2rem] p-3"
+                className={`glass glass-hover spot group flex overflow-hidden rounded-[2rem] p-3 ${
+                  wide ? "flex-col lg:col-span-2 lg:flex-row" : "flex-col"
+                }`}
               >
-                <div className="h-48 overflow-hidden rounded-[1.4rem] bg-gradient-to-br from-[rgba(56,182,255,0.08)] via-[rgba(99,100,199,0.06)] to-[rgba(136,33,153,0.08)]">
+                <div
+                  className={`shrink-0 overflow-hidden rounded-[1.4rem] bg-gradient-to-br from-[rgba(56,182,255,0.08)] via-[rgba(99,100,199,0.06)] to-[rgba(136,33,153,0.08)] ${
+                    wide ? "h-48 lg:h-auto lg:w-[46%]" : "h-48"
+                  }`}
+                >
                   <Visual />
                 </div>
-                <div className="p-5">
-                  <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold">{card.title}</h3>
+                <div className={`flex flex-col justify-center p-5 ${wide ? "lg:p-7" : ""}`}>
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-dim)]/70">
+                    0{index + 1}
+                  </span>
+                  <h3 className={`mt-2 font-[family-name:var(--font-display)] font-semibold ${wide ? "text-xl" : "text-lg"}`}>
+                    {card.title}
+                  </h3>
                   <p className="mt-2 text-sm leading-relaxed text-[var(--text-dim)]">{card.text}</p>
                 </div>
               </motion.div>

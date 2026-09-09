@@ -54,6 +54,14 @@ export function Hero({ messages }: HeroProps) {
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center text-center"
       >
+        <span className="glass mb-7 inline-flex items-center gap-2 rounded-full px-4 py-2 font-mono text-[11px] uppercase tracking-widest text-[var(--text-dim)]">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#3ad08f] opacity-60" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#3ad08f]" />
+          </span>
+          {messages.hero.available}
+        </span>
+
         <h1 className="font-[family-name:var(--font-display)] text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-7xl">
           {messages.hero.title1}
           <br />
@@ -65,7 +73,7 @@ export function Hero({ messages }: HeroProps) {
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row">
-          <a href="#contact" className="btn-grad cta-pulse rounded-full px-8 py-4 text-base font-semibold text-white">
+          <a href="#contact" className="btn-grad rounded-full px-8 py-4 text-base font-semibold text-white">
             {messages.hero.ctaPrimary}
           </a>
           <a

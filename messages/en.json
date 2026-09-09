@@ -7,7 +7,8 @@
     "services": "What I do",
     "projects": "Projects",
     "contact": "Contact",
-    "cta": "Write to me"
+    "cta": "Write to me",
+    "about": "About"
   },
   "hero": {
     "title1": "Got an idea?",
@@ -15,7 +16,8 @@
     "subtitle": "Websites, apps and games — you tell me what you want to achieve, and I take care of everything else: design, code, launch and care after release.",
     "ctaPrimary": "Write to me",
     "ctaSecondary": "See what I do",
-    "note": "A quote and an action plan — free, usually within 24 hours."
+    "note": "A quote and an action plan — free, usually within 24 hours.",
+    "available": "Available for new projects"
   },
   "services": {
     "eyebrow": "What I do",
@@ -84,7 +86,9 @@
         "href": "https://tadzik28.pl",
         "cta": "Play online"
       }
-    ]
+    ],
+    "viewCase": "View case study",
+    "all": "See all work"
   },
   "contact": {
     "eyebrow": "Contact",
@@ -97,7 +101,11 @@
       "name": "Your name",
       "email": "Your e-mail",
       "message": "Briefly describe your idea…",
-      "submit": "Send message"
+      "submit": "Send message",
+      "sending": "Sending…",
+      "sent": "Sent! I'll reply within 24 hours.",
+      "error": "Couldn't send. Write directly to",
+      "again": "Send another"
     }
   },
   "footer": {
@@ -134,6 +142,47 @@
       {
         "q": "What happens after launch?",
         "a": "Nothing is left unattended. I can keep updating, fixing and growing your site or app — on an ongoing basis or whenever you need it."
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "Hi, I'm Patryk.",
+    "lead": "Full-stack developer (Next.js) and Flutter. Since 2024 I've been building websites, apps and games — first at Capgemini, now at Alvernia Planet and for my own clients.",
+    "body": "I like projects where the result is visible: a website that sells tickets, an app in the App Store, a game someone gets as a gift. I talk like a human, deliver on time and don't disappear after handover.",
+    "experienceTitle": "Experience",
+    "skillsTitle": "Technologies",
+    "present": "present",
+    "experience": {
+      "capgemini": {
+        "role": "Developer",
+        "text": "Business process automation (Blue Prism, UiPath), Python and SQL for enterprise clients."
+      },
+      "alvernia": {
+        "role": "Web & Mobile Developer",
+        "text": "The alverniaplanet.com website, the MarsApp iOS app and the park's internal tools."
+      }
+    },
+    "skillCategories": {
+      "frontend": "Frontend",
+      "mobile": "Mobile",
+      "backend": "Backend & data",
+      "tools": "Tools",
+      "automation": "Automation",
+      "games": "Games"
+    },
+    "stats": [
+      {
+        "value": "2+",
+        "label": "years of experience"
+      },
+      {
+        "value": "3",
+        "label": "public projects"
+      },
+      {
+        "value": "24h",
+        "label": "response time"
       }
     ]
   }

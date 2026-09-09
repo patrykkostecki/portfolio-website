@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 import { useLocale } from "@/lib/locale";
 
-const SECTIONS = ["services", "projects", "contact"] as const;
+const SECTIONS = ["services", "projects", "about", "contact"] as const;
 
 export function Navbar() {
   const { locale, dict, setLocale } = useLocale();
@@ -44,6 +44,7 @@ export function Navbar() {
   const links = [
     { id: "services", label: dict.nav.services },
     { id: "projects", label: dict.nav.projects },
+    { id: "about", label: dict.nav.about },
     { id: "contact", label: dict.nav.contact },
   ];
 
@@ -102,7 +103,7 @@ export function Navbar() {
           </button>
           <a
             href={isHome ? "#contact" : "/#contact"}
-            className="btn-grad cta-pulse rounded-full px-4 py-2.5 text-sm font-semibold text-white sm:px-5"
+            className="btn-grad rounded-full px-4 py-2.5 text-sm font-semibold text-white sm:px-5"
           >
             {dict.nav.cta}
           </a>
