@@ -27,7 +27,7 @@ export function Showcase() {
 
   return (
     <div onMouseMove={onMove} onMouseLeave={reset} className="relative mx-auto w-full max-w-[34rem]" style={{ perspective: 1400 }}>
-      <motion.div style={{ rotateX, rotateY, transformStyle: "preserve-3d" }} className="relative aspect-[4/3]">
+      <motion.div style={{ rotateX, rotateY, transformStyle: "preserve-3d", willChange: "transform" }} className="relative aspect-[4/3]">
         {/* browser window — alverniaplanet.com */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -36,7 +36,7 @@ export function Showcase() {
           className="absolute left-0 top-[4%] w-[80%]"
           style={{ transform: "translateZ(0px)" }}
         >
-          <div className="animate-floaty-slow overflow-hidden rounded-xl border border-white/10 bg-[#0e1525] shadow-[0_30px_80px_rgba(0,0,0,0.55)]">
+          <div className="animate-floaty-slow overflow-hidden rounded-xl border border-white/10 bg-[#0e1525] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
             <div className="flex items-center gap-1.5 border-b border-white/5 px-3 py-2">
               <span className="h-2 w-2 rounded-full bg-white/15" />
               <span className="h-2 w-2 rounded-full bg-white/15" />
@@ -59,7 +59,7 @@ export function Showcase() {
           className="absolute bottom-[2%] left-[6%] w-[42%]"
           style={{ transform: "translateZ(40px)" }}
         >
-          <div className="animate-floaty overflow-hidden rounded-lg border border-white/10 bg-[#0e1525] shadow-[0_24px_60px_rgba(0,0,0,0.55)]">
+          <div className="animate-floaty overflow-hidden rounded-lg border border-white/10 bg-[#0e1525] shadow-[0_16px_40px_rgba(0,0,0,0.5)]">
             <div className="relative aspect-[16/10]">
               <Image src={game.cover} alt="tadzik28.pl" fill sizes="220px" className="object-cover" />
             </div>
@@ -77,7 +77,7 @@ export function Showcase() {
           className="absolute bottom-0 right-0 w-[31%]"
           style={{ transform: "translateZ(80px)" }}
         >
-          <div className="animate-floaty relative overflow-hidden rounded-[1.6rem] border-[5px] border-[#0b1120] bg-[#0b1120] shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
+          <div className="animate-floaty relative overflow-hidden rounded-[1.6rem] border-[5px] border-[#0b1120] bg-[#0b1120] shadow-[0_20px_50px_rgba(0,0,0,0.55)]">
             <span className="absolute left-1/2 top-1.5 z-10 h-1 w-7 -translate-x-1/2 rounded-full bg-black/70" />
             <Image src={app.gallery[0]} alt="MarsApp" width={440} height={954} sizes="180px" className="h-auto w-full rounded-[1.2rem]" />
           </div>

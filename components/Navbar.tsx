@@ -55,7 +55,7 @@ export function Navbar() {
       <nav
         className={`mx-auto grid w-full max-w-6xl grid-cols-[1fr_auto] items-center gap-2 rounded-full border transition-all duration-500 sm:grid-cols-[1fr_auto_1fr] ${
           scrolled
-            ? "border-[var(--line)] bg-[rgba(14,21,37,0.78)] py-1.5 pl-5 pr-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+            ? "border-[var(--line)] bg-[rgba(14,21,37,0.94)] py-1.5 pl-5 pr-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.35)]"
             : "border-transparent bg-transparent py-2 pl-6 pr-2"
         }`}
       >

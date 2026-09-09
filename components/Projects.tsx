@@ -73,7 +73,7 @@ function FeatureRow({ project, index, messages }: { project: Project; index: num
     <div ref={ref} id={`project-${project.slug}`} className="grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
       <Reveal className={`lg:col-span-7 ${flip ? "lg:order-2" : ""}`}>
         <Link href={`/projekty/${project.slug}`} aria-label={project.title} className="group block">
-          <motion.div style={{ y }} className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.45)]">
+          <motion.div style={{ y }} className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.4)]">
             <CardMedia project={project} priority={index === 0} />
           </motion.div>
         </Link>
