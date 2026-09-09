@@ -19,20 +19,7 @@ export function Hero({ messages }: HeroProps) {
     <section id="top" className="relative px-4 pt-32 pb-16 sm:px-6 sm:pt-40 lg:min-h-svh lg:pb-24">
       <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
         <div className="relative">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="eyebrow inline-flex items-center gap-2.5"
-          >
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#3ad08f] opacity-60" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#3ad08f]" />
-            </span>
-            {messages.hero.available}
-          </motion.p>
-
-          <h1 className="display mt-7 text-[2.9rem] font-extrabold sm:text-6xl lg:text-[4.6rem] xl:text-[5.2rem]">
+          <h1 className="display text-[2.9rem] font-extrabold sm:text-6xl lg:text-[4.6rem] xl:text-[5.2rem]">
             <Words text={messages.hero.title1} className="block" />
             <Words text={messages.hero.title2} delay={0.25} highlight={title2Words.length - 1} className="block text-white" />
           </h1>

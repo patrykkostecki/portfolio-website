@@ -109,7 +109,7 @@ export function Services({ messages }: ServicesProps) {
   return (
     <section id="services" className="relative scroll-mt-28 px-4 py-28 sm:px-6 sm:py-36">
       <div className="mx-auto max-w-6xl">
-        <SectionHead index="01" eyebrow={messages.services.eyebrow} title={messages.services.title} subtitle={messages.services.subtitle} />
+        <SectionHead index="01" eyebrow={messages.services.eyebrow} title={messages.services.title} />
 
         {/* bento: wide cards on the outer corners, compact ones in between */}
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -58,7 +58,7 @@ export function Contact({ messages }: ContactProps) {
   return (
     <section id="contact" className="relative scroll-mt-28 px-4 py-28 sm:px-6 sm:py-36">
       <div className="mx-auto max-w-6xl">
-        <SectionHead index="05" eyebrow={messages.contact.eyebrow} title={messages.contact.title} subtitle={messages.contact.subtitle} />
+        <SectionHead index="05" eyebrow={messages.contact.eyebrow} title={messages.contact.title} />
 
         <div className="mt-16 grid gap-14 lg:grid-cols-12 lg:gap-10">
           <Reveal className="lg:col-span-6">

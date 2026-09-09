@@ -64,14 +64,8 @@ export function Footer() {
         </div>
       </div>
 
-      {/* wordmark */}
-      <div className="mx-auto mt-16 max-w-6xl">
-        <p aria-hidden className="display outline-text select-none pb-[0.08em] text-[22vw] font-extrabold leading-none sm:text-[15rem] lg:text-[18rem]">
-          pk.dev
-        </p>
-      </div>
 
-      <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-2 border-t border-[var(--line)] py-6 pr-16 font-mono text-[11px] text-[var(--text-dim)]/60 sm:flex-row sm:pr-0">
+      <div className="mx-auto mt-14 flex max-w-6xl flex-col items-start justify-between gap-2 border-t border-[var(--line)] py-6 pr-16 font-mono text-[11px] text-[var(--text-dim)]/60 sm:flex-row sm:pr-0">
         <p>
           © {new Date().getFullYear()} {profile.name} · {dict.footer.rights}
         </p>

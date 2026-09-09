@@ -39,7 +39,6 @@ export function About({ messages }: AboutProps) {
                 </div>
               </div>
 
-              <p className="mt-7 leading-relaxed text-[var(--text-dim)]">{t.body}</p>
 
               <dl className="mt-8 grid grid-cols-3 divide-x divide-[var(--line)] border-y border-[var(--line)] py-6">
                 {t.stats.map((stat) => (

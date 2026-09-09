@@ -106,7 +106,7 @@ export function Projects({ messages }: ProjectsProps) {
   return (
     <section id="projects" className="relative scroll-mt-28 px-4 py-28 sm:px-6 sm:py-36">
       <div className="mx-auto max-w-6xl">
-        <SectionHead index="02" eyebrow={messages.projects.eyebrow} title={messages.projects.title} subtitle={messages.projects.subtitle} />
+        <SectionHead index="02" eyebrow={messages.projects.eyebrow} title={messages.projects.title} />
 
         <div className="mt-20 flex flex-col gap-24 sm:gap-32">
           {projects.map((project, index) => (
