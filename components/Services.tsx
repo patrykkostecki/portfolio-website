@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { Gamepad2, ShieldCheck } from "lucide-react";
 
+import { Reveal } from "@/components/motion/Reveal";
+import { SectionHead } from "@/components/SectionHead";
 import type { Messages } from "@/lib/i18n";
 import { spotlight } from "@/lib/spotlight";
 
@@ -105,26 +107,12 @@ const visuals = [VisualWebsite, VisualApp, VisualGame, VisualCare];
 
 export function Services({ messages }: ServicesProps) {
   return (
-    <section id="services" className="relative scroll-mt-28 px-4 py-28">
+    <section id="services" className="relative scroll-mt-28 px-4 py-28 sm:px-6 sm:py-36">
       <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <span className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--sky)]">
-            {messages.services.eyebrow}
-          </span>
-          <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-bold sm:text-4xl">
-            {messages.services.title}
-          </h2>
-          <p className="mt-4 text-[var(--text-dim)]">{messages.services.subtitle}</p>
-        </motion.div>
+        <SectionHead index="01" eyebrow={messages.services.eyebrow} title={messages.services.title} subtitle={messages.services.subtitle} />
 
         {/* bento: wide cards on the outer corners, compact ones in between */}
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {messages.services.cards.map((card, index) => {
             const Visual = visuals[index] ?? VisualWebsite;
             const wide = index === 0 || index === 3;
@@ -134,64 +122,46 @@ export function Services({ messages }: ServicesProps) {
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, delay: (index % 2) * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.7, delay: (index % 2) * 0.08, ease: [0.22, 1, 0.36, 1] }}
                 onMouseMove={spotlight}
-                className={`glass glass-hover spot group flex overflow-hidden rounded-[2rem] p-3 ${
+                className={`glass glass-hover spot group flex overflow-hidden rounded-2xl p-2 ${
                   wide ? "flex-col lg:col-span-2 lg:flex-row" : "flex-col"
                 }`}
               >
                 <div
-                  className={`shrink-0 overflow-hidden rounded-[1.4rem] bg-gradient-to-br from-[rgba(56,182,255,0.08)] via-[rgba(99,100,199,0.06)] to-[rgba(136,33,153,0.08)] ${
-                    wide ? "h-48 lg:h-auto lg:w-[46%]" : "h-48"
+                  className={`shrink-0 overflow-hidden rounded-xl border border-white/5 bg-[#0b1120] ${
+                    wide ? "h-52 lg:h-auto lg:w-[46%]" : "h-52"
                   }`}
                 >
                   <Visual />
                 </div>
-                <div className={`flex flex-col justify-center p-5 ${wide ? "lg:p-7" : ""}`}>
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-dim)]/70">
-                    0{index + 1}
-                  </span>
-                  <h3 className={`mt-2 font-[family-name:var(--font-display)] font-semibold ${wide ? "text-xl" : "text-lg"}`}>
-                    {card.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[var(--text-dim)]">{card.text}</p>
+                <div className={`flex flex-col justify-end p-5 ${wide ? "lg:justify-center lg:p-8" : ""}`}>
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-white/35">0{index + 1}</span>
+                  <h3 className={`display mt-3 font-bold ${wide ? "text-2xl" : "text-xl"}`}>{card.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--text-dim)]">{card.text}</p>
                 </div>
               </motion.div>
             );
           })}
         </div>
 
-        {/* steps */}
-        <div className="mt-28">
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6 }}
-            className="text-center font-[family-name:var(--font-display)] text-2xl font-bold sm:text-3xl"
-          >
-            {messages.steps.title}
-          </motion.h3>
-          <div className="relative mt-12 grid gap-6 sm:grid-cols-3">
-            <span className="absolute left-[16%] right-[16%] top-10 hidden h-px bg-gradient-to-r from-[rgba(56,182,255,0.4)] via-[rgba(99,100,199,0.4)] to-[rgba(136,33,153,0.4)] sm:block" />
+        {/* process */}
+        <div className="mt-32">
+          <Reveal className="flex items-end justify-between gap-6 border-t border-[var(--line)] pt-8">
+            <h3 className="display text-3xl font-extrabold sm:text-4xl">{messages.steps.title}</h3>
+            <span className="eyebrow hidden sm:block">{messages.steps.items.length} ×</span>
+          </Reveal>
+          <ol className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
             {messages.steps.items.map((step, index) => (
-              <motion.div
-                key={step.title}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
-                onMouseMove={spotlight}
-                className="glass-deep glass-hover spot relative rounded-[2rem] p-7 text-center sm:text-left"
-              >
-                <span className="grad-border relative z-10 mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--navy-2)] font-[family-name:var(--font-display)] text-lg font-extrabold text-white sm:mx-0">
-                  {index + 1}
+              <Reveal key={step.title} delay={index * 0.1} className="group relative border-l border-[var(--line)] pl-6 md:border-l-0 md:border-t md:pl-0 md:pt-8">
+                <span className="display block text-6xl font-extrabold leading-none text-white/[0.08] transition-colors duration-500 group-hover:text-[var(--sky)] md:text-7xl">
+                  {String(index + 1).padStart(2, "0")}
                 </span>
-                <h4 className="mt-5 font-[family-name:var(--font-display)] text-base font-semibold">{step.title}</h4>
-                <p className="mt-2 text-sm leading-relaxed text-[var(--text-dim)]">{step.text}</p>
-              </motion.div>
+                <h4 className="display mt-5 text-xl font-bold">{step.title}</h4>
+                <p className="mt-3 max-w-xs text-sm leading-relaxed text-[var(--text-dim)]">{step.text}</p>
+              </Reveal>
             ))}
-          </div>
+          </ol>
         </div>
       </div>
     </section>

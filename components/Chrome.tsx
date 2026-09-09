@@ -21,7 +21,7 @@ export function Chrome() {
     <>
       <motion.div
         style={{ scaleX: progress }}
-        className="fixed inset-x-0 top-0 z-[60] h-[3px] origin-left bg-[linear-gradient(90deg,#38B6FF,#6364C7,#882199)] shadow-[0_0_14px_rgba(56,182,255,0.6)]"
+        className="fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-[var(--sky)]"
       />
       <motion.button
         type="button"
@@ -30,7 +30,7 @@ export function Chrome() {
         initial={false}
         animate={showTop ? { opacity: 1, y: 0, pointerEvents: "auto" } : { opacity: 0, y: 16, pointerEvents: "none" }}
         transition={{ duration: 0.3 }}
-        className="glass glass-hover fixed bottom-6 right-6 z-[55] flex h-12 w-12 items-center justify-center rounded-full text-[var(--text-dim)] hover:text-white"
+        className="fixed bottom-6 right-6 z-[55] flex h-11 w-11 items-center justify-center rounded-full border border-[var(--line-strong)] bg-[rgba(14,21,37,0.8)] text-[var(--text-dim)] backdrop-blur transition hover:border-white/40 hover:text-white"
       >
         <ArrowUp className="h-5 w-5" />
       </motion.button>

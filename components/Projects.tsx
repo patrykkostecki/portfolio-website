@@ -1,59 +1,50 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 
+import { Reveal } from "@/components/motion/Reveal";
+import { SectionHead } from "@/components/SectionHead";
 import { projects, type Project } from "@/data/projects";
 import type { Messages } from "@/lib/i18n";
 import { useLocale } from "@/lib/locale";
-import { spotlight } from "@/lib/spotlight";
 
 type ProjectsProps = {
   messages: Messages;
 };
 
-/** Card media: a browser window for web projects, a phone for mobile apps. */
-export function CardMedia({ project }: { project: Project }) {
+/** Media block: a browser window for web projects, a phone composition for apps. */
+export function CardMedia({ project, priority = false }: { project: Project; priority?: boolean }) {
   if (project.phoneGallery) {
     return (
       <div
-        className="absolute inset-0 flex items-end justify-center overflow-hidden"
-        style={{
-          background: `radial-gradient(circle at 50% 110%, ${project.accent}55, rgba(14,21,37,0.2) 60%), linear-gradient(160deg, #16203a, #0b1120)`,
-        }}
+        className="absolute inset-0 flex items-end justify-center gap-4 overflow-hidden px-6"
+        style={{ background: `radial-gradient(ellipse at 50% 120%, ${project.accent}66, transparent 60%), #0b1120` }}
       >
-        <div className="relative w-[124px] translate-y-[14%] rounded-[1.6rem] border-[5px] border-[#0b1120] bg-[#0b1120] shadow-[0_24px_60px_rgba(0,0,0,0.55)] transition-transform duration-700 ease-out group-hover:-translate-y-[2%] sm:w-[136px]">
-          <span className="absolute left-1/2 top-1.5 z-10 h-1 w-8 -translate-x-1/2 rounded-full bg-black/60" />
-          <Image
-            src={project.gallery[0]}
-            alt={project.title}
-            width={440}
-            height={954}
-            sizes="140px"
-            className="h-auto w-full rounded-[1.25rem]"
-          />
-        </div>
-        <Image
-          src={project.cover}
-          alt=""
-          aria-hidden
-          width={48}
-          height={48}
-          className="absolute left-4 bottom-4 rounded-xl shadow-[0_8px_24px_rgba(0,0,0,0.5)]"
-        />
+        {project.gallery.slice(0, 3).map((src, i) => (
+          <div
+            key={src}
+            className={`relative w-[27%] max-w-[150px] overflow-hidden rounded-[1.4rem] border-[4px] border-[#0b1120] bg-[#0b1120] shadow-[0_24px_60px_rgba(0,0,0,0.55)] transition-transform duration-700 ease-out ${
+              i === 1 ? "translate-y-[8%] group-hover:translate-y-[2%]" : "translate-y-[22%] group-hover:translate-y-[16%]"
+            }`}
+          >
+            <Image src={src} alt={`${project.title} ${i + 1}`} width={440} height={954} sizes="150px" priority={priority && i === 1} className="h-auto w-full rounded-[1rem]" />
+          </div>
+        ))}
       </div>
     );
   }
 
   return (
     <div className="absolute inset-0 flex flex-col bg-[#0b1120]">
-      <div className="flex shrink-0 items-center gap-1.5 border-b border-white/5 bg-[#0e1525] px-3 py-2">
-        <span className="h-2 w-2 rounded-full bg-[#ff5f57]/80" />
-        <span className="h-2 w-2 rounded-full bg-[#febc2e]/80" />
-        <span className="h-2 w-2 rounded-full bg-[#28c840]/80" />
-        <span className="ml-2 flex h-4 flex-1 items-center rounded-md bg-white/5 px-2 font-mono text-[9px] text-white/40">
+      <div className="flex shrink-0 items-center gap-1.5 border-b border-white/5 px-3 py-2">
+        <span className="h-2 w-2 rounded-full bg-white/15" />
+        <span className="h-2 w-2 rounded-full bg-white/15" />
+        <span className="h-2 w-2 rounded-full bg-white/15" />
+        <span className="ml-2 flex h-4 flex-1 items-center rounded bg-white/5 px-2 font-mono text-[9px] text-white/40">
           {project.link.href.replace(/^https?:\/\//, "")}
         </span>
       </div>
@@ -62,95 +53,73 @@ export function CardMedia({ project }: { project: Project }) {
           src={project.cover}
           alt={project.title}
           fill
-          sizes="(max-width: 1024px) 100vw, 33vw"
-          className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+          sizes="(max-width: 1024px) 100vw, 640px"
+          priority={priority}
+          className="object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
         />
       </div>
     </div>
   );
 }
 
-export function Projects({ messages }: ProjectsProps) {
+function FeatureRow({ project, index, messages }: { project: Project; index: number; messages: Messages }) {
   const { locale } = useLocale();
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], [36, -36]);
+  const flip = index % 2 === 1;
 
   return (
-    <section id="projects" className="relative scroll-mt-28 px-4 py-28">
-      <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <span className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--sky)]">
-            {messages.projects.eyebrow}
-          </span>
-          <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-bold sm:text-4xl">
-            {messages.projects.title}
-          </h2>
-          <p className="mt-4 text-[var(--text-dim)]">{messages.projects.subtitle}</p>
-        </motion.div>
+    <div ref={ref} id={`project-${project.slug}`} className="grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
+      <Reveal className={`lg:col-span-7 ${flip ? "lg:order-2" : ""}`}>
+        <Link href={`/projekty/${project.slug}`} aria-label={project.title} className="group block">
+          <motion.div style={{ y }} className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.45)]">
+            <CardMedia project={project} priority={index === 0} />
+          </motion.div>
+        </Link>
+      </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <Reveal delay={0.1} className={`lg:col-span-5 ${flip ? "lg:order-1 lg:pr-6" : "lg:pl-6"}`}>
+        <p className="eyebrow flex items-center gap-3">
+          <span className="text-white/40">{String(index + 1).padStart(2, "0")}</span>
+          <span>{project.tag[locale]}</span>
+          <span className="text-white/30">·</span>
+          <span className="text-[var(--text-dim)]">{project.year}</span>
+        </p>
+        <h3 className="display mt-5 text-3xl font-extrabold sm:text-4xl">
+          <Link href={`/projekty/${project.slug}`} className="group inline-flex items-start gap-2 transition-colors hover:text-[var(--sky)]">
+            {project.title}
+            <ArrowUpRight className="mt-1.5 h-5 w-5 shrink-0 text-white/40 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-[var(--sky)]" />
+          </Link>
+        </h3>
+        <p className="mt-5 max-w-md leading-relaxed text-[var(--text-dim)]">{project.summary[locale]}</p>
+        <p className="mt-6 font-mono text-[11px] uppercase tracking-widest text-white/45">{project.tech.join("  ·  ")}</p>
+        <Link href={`/projekty/${project.slug}`} className="link-line mt-8 inline-block text-sm font-medium text-white">
+          {messages.projects.viewCase}
+        </Link>
+      </Reveal>
+    </div>
+  );
+}
+
+export function Projects({ messages }: ProjectsProps) {
+  return (
+    <section id="projects" className="relative scroll-mt-28 px-4 py-28 sm:px-6 sm:py-36">
+      <div className="mx-auto max-w-6xl">
+        <SectionHead index="02" eyebrow={messages.projects.eyebrow} title={messages.projects.title} subtitle={messages.projects.subtitle} />
+
+        <div className="mt-20 flex flex-col gap-24 sm:gap-32">
           {projects.map((project, index) => (
-            <motion.div
-              key={project.slug}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              onMouseMove={spotlight}
-              className="glass glass-hover spot group relative flex flex-col overflow-hidden rounded-[2rem] p-3"
-            >
-              <Link href={`/projekty/${project.slug}`} className="flex flex-1 flex-col" aria-label={project.title}>
-                <div className="relative h-56 overflow-hidden rounded-[1.4rem] border border-white/5 sm:h-60">
-                  <CardMedia project={project} />
-                  <span className="absolute right-3 top-3 z-10 rounded-full bg-[rgba(10,15,30,0.75)] px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-[var(--sky)] backdrop-blur">
-                    {project.tag[locale]}
-                  </span>
-                  <span className="absolute inset-0 bg-gradient-to-t from-[rgba(10,15,30,0.55)] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                  <span className="absolute bottom-3 right-3 z-10 flex items-center gap-1 rounded-full bg-white/15 px-3.5 py-2 font-mono text-[11px] text-white backdrop-blur transition-all duration-500 sm:translate-y-2 sm:bg-white/10 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
-                    {messages.projects.viewCase}
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
-                </div>
-                <div className="flex flex-1 flex-col p-5">
-                  <div className="flex items-center justify-between gap-3">
-                    <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold transition-colors group-hover:text-[var(--sky)]">
-                      {project.title}
-                    </h3>
-                    <ArrowUpRight className="h-4 w-4 shrink-0 text-[var(--text-dim)] transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[var(--sky)]" />
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-[var(--text-dim)]">{project.summary[locale]}</p>
-                  <ul className="mt-4 flex flex-wrap gap-1.5">
-                    {project.tech.slice(0, 3).map((tech) => (
-                      <li key={tech} className="rounded-full bg-white/5 px-2.5 py-1 font-mono text-[10px] text-[var(--text-dim)]">
-                        {tech}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Link>
-            </motion.div>
+            <FeatureRow key={project.slug} project={project} index={index} messages={messages} />
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.5 }}
-          className="mt-12 flex justify-center"
-        >
-          <Link
-            href="/projekty"
-            className="glass glass-hover inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white"
-          >
+        <Reveal className="mt-24 flex justify-center">
+          <Link href="/projekty" className="btn-ghost px-7 py-4 text-sm">
             {messages.projects.all}
-            <ArrowRight className="h-4 w-4" />
+            <ArrowUpRight className="h-4 w-4" />
           </Link>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

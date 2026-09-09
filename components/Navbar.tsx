@@ -53,8 +53,10 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-4 z-50 px-4 sm:px-6">
       <nav
-        className={`glass mx-auto grid w-full max-w-6xl grid-cols-[1fr_auto] items-center gap-2 rounded-full transition-all duration-500 sm:grid-cols-[1fr_auto_1fr] ${
-          scrolled ? "py-1.5 pl-5 pr-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.45)]" : "py-2 pl-6 pr-2"
+        className={`mx-auto grid w-full max-w-6xl grid-cols-[1fr_auto] items-center gap-2 rounded-full border transition-all duration-500 sm:grid-cols-[1fr_auto_1fr] ${
+          scrolled
+            ? "border-[var(--line)] bg-[rgba(14,21,37,0.78)] py-1.5 pl-5 pr-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+            : "border-transparent bg-transparent py-2 pl-6 pr-2"
         }`}
       >
         <Link href="/" className="group flex shrink-0 items-center justify-self-start" aria-label="pk.dev — start">
@@ -82,7 +84,7 @@ export function Navbar() {
                 {isActive && (
                   <motion.span
                     layoutId="nav-pill"
-                    className="absolute inset-0 -z-10 rounded-full bg-white/10"
+                    className="absolute inset-0 -z-10 rounded-full bg-white/[0.08]"
                     transition={{ type: "spring", stiffness: 380, damping: 32 }}
                   />
                 )}
@@ -103,7 +105,7 @@ export function Navbar() {
           </button>
           <a
             href={isHome ? "#contact" : "/#contact"}
-            className="btn-grad rounded-full px-4 py-2.5 text-sm font-semibold text-white sm:px-5"
+            className="btn-primary px-4 py-2.5 text-sm sm:px-5"
           >
             {dict.nav.cta}
           </a>
