@@ -6,10 +6,7 @@
     "dev": "node scripts/dev-smart.mjs",
     "build": "next build",
     "start": "node scripts/start-smart.mjs",
-    "lint": "eslint",
-    "firebase:deploy": "firebase deploy --only hosting",
-    "firebase:use": "firebase use",
-    "firebase:target": "echo Set .firebaserc default project id first"
+    "lint": "eslint"
   },
   "dependencies": {
     "clsx": "^2.1.1",
