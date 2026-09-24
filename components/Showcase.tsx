@@ -8,8 +8,18 @@ import { projects } from "@/data/projects";
 
 const [web, app, game] = projects;
 
+type ShowcaseProps = {
+  /** index of the project being hovered in the hero list; that layer comes forward */
+  active: number | null;
+};
+
+const layer = (self: number, active: number | null) =>
+  active === null ? { scale: 1, opacity: 1, y: 0 } : active === self ? { scale: 1.05, opacity: 1, y: -8 } : { scale: 0.97, opacity: 0.35, y: 0 };
+
+const spring = { type: "spring" as const, stiffness: 260, damping: 26 };
+
 /** Real work, stacked in 3D and tilting toward the cursor. */
-export function Showcase() {
+export function Showcase({ active }: ShowcaseProps) {
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
   const rotateX = useSpring(useTransform(my, [-0.5, 0.5], [7, -7]), { stiffness: 120, damping: 18 });
@@ -26,13 +36,13 @@ export function Showcase() {
   };
 
   return (
-    <div onMouseMove={onMove} onMouseLeave={reset} className="relative mx-auto w-full max-w-[34rem]" style={{ perspective: 1400 }}>
+    <div onMouseMove={onMove} onMouseLeave={reset} className="relative mx-auto w-full max-w-[34rem] xl:max-w-[40rem]" style={{ perspective: 1400 }}>
       <motion.div style={{ rotateX, rotateY, transformStyle: "preserve-3d", willChange: "transform" }} className="relative aspect-[4/3]">
         {/* browser window — alverniaplanet.com */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          animate={{ ...layer(0, active), opacity: layer(0, active).opacity }}
+          transition={{ ...spring, opacity: { duration: 0.35 } }}
           className="absolute left-0 top-[4%] w-[80%]"
           style={{ transform: "translateZ(0px)" }}
         >
@@ -46,7 +56,7 @@ export function Showcase() {
               </span>
             </div>
             <div className="relative aspect-[16/10]">
-              <Image src={web.cover} alt="alverniaplanet.com" fill sizes="(max-width: 1024px) 80vw, 440px" priority className="object-cover object-top" />
+              <Image src={web.cover} alt="alverniaplanet.com" fill sizes="(max-width: 1024px) 80vw, 520px" priority className="object-cover object-top" />
             </div>
           </div>
         </motion.div>
@@ -54,14 +64,14 @@ export function Showcase() {
         {/* game frame — tadzik28.pl */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.55, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          animate={layer(2, active)}
+          transition={{ ...spring, opacity: { duration: 0.35 } }}
           className="absolute bottom-[2%] left-[6%] w-[42%]"
           style={{ transform: "translateZ(40px)" }}
         >
           <div className="animate-floaty overflow-hidden rounded-lg border border-white/10 bg-[#0e1525] shadow-[0_16px_40px_rgba(0,0,0,0.5)]">
             <div className="relative aspect-[16/10]">
-              <Image src={game.cover} alt="tadzik28.pl" fill sizes="220px" className="object-cover" />
+              <Image src={game.cover} alt="tadzik28.pl" fill sizes="260px" className="object-cover" />
             </div>
             <p className="flex items-center justify-between px-2.5 py-1.5 font-mono text-[9px] uppercase tracking-widest text-white/50">
               tadzik28.pl <span className="text-[var(--sky)]">gra 2D</span>
@@ -72,14 +82,14 @@ export function Showcase() {
         {/* phone — MarsApp */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          animate={layer(1, active)}
+          transition={{ ...spring, opacity: { duration: 0.35 } }}
           className="absolute bottom-0 right-0 w-[31%]"
           style={{ transform: "translateZ(80px)" }}
         >
           <div className="animate-floaty relative overflow-hidden rounded-[1.6rem] border-[5px] border-[#0b1120] bg-[#0b1120] shadow-[0_20px_50px_rgba(0,0,0,0.55)]">
             <span className="absolute left-1/2 top-1.5 z-10 h-1 w-7 -translate-x-1/2 rounded-full bg-black/70" />
-            <Image src={app.gallery[0]} alt="MarsApp" width={440} height={954} sizes="180px" className="h-auto w-full rounded-[1.2rem]" />
+            <Image src={app.gallery[0]} alt="MarsApp" width={440} height={954} sizes="200px" className="h-auto w-full rounded-[1.2rem]" />
           </div>
           <Image
             src={app.cover}
