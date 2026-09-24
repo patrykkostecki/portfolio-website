@@ -36,8 +36,8 @@ export const projects: Project[] = [
   {
     slug: "alverniaplanet",
     accent: "#1C61D6",
-    cover: "/projects/alverniaplanet.jpg",
-    gallery: ["/projects/alverniaplanet.jpg", "/projects/alvernia-2.jpg"],
+    cover: "/projects/alverniaplanet-kino360.jpg",
+    gallery: ["/projects/alverniaplanet-kino360.jpg", "/projects/alverniaplanet-mars.jpg"],
     year: "2025 — teraz",
     title: "alverniaplanet.com",
     tag: { pl: "Strona WWW", en: "Website" },
@@ -94,9 +94,9 @@ export const projects: Project[] = [
   {
     slug: "marsapp",
     accent: "#C44B2A",
-    cover: "/projects/marsapp-icon.png",
+    cover: "/projects/marsapp-icon-2.png",
     phoneGallery: true,
-    gallery: ["/projects/marsapp-1.jpg", "/projects/marsapp-2.jpg", "/projects/marsapp-3.jpg"],
+    gallery: ["/projects/marsapp-start.jpg", "/projects/marsapp-stacje.jpg", "/projects/marsapp-film.jpg"],
     year: "2026",
     title: "MarsApp",
     tag: { pl: "Aplikacja iOS", en: "iOS app" },
